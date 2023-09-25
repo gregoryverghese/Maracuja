@@ -46,13 +46,13 @@ def archive_pw_dist(sample_size):
         dfa = df2.drop_duplicates(subset=["aminoAcid"], keep='first') #remove duplicates
 
         pw_dist = get_pw_dist(dfa)
-        pd.DataFrame(pw_dist).to_csv('Analysis/KCL-Content/metadata/pw_dist_' + str(sample_size) + '.csv', sep='\t', index=False)
-        pd.DataFrame(dfa).to_csv('Analysis/KCL-Content/metadata/meta_' + str(sample_size) + '.csv', sep='\t', index=False)
+        pd.DataFrame(pw_dist).to_csv('Analysis/pw_dist_' + str(sample_size) + '.csv', sep='\t', index=False)
+        pd.DataFrame(dfa).to_csv('Analysis/meta_' + str(sample_size) + '.csv', sep='\t', index=False)
 
 
 KCL_bulk = pd.read_csv("Analysis/processed_data/data2-KCL.csv", delimiter=',')
 
-archive_pw_dist(0.005)
+archive_pw_dist(0.001)
 
 # # Plot per sample
 # samples = (list(set(KCL_bulk['Sample'])))

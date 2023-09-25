@@ -1,6 +1,7 @@
 __pycache__
+.DS_Store
 processed_data
 raw_data
 figures
-KCL-Content/figures
-KCL-Content/metadata
+KCL-Content
+analysis.db
