@@ -1,7 +1,8 @@
-# README.md
+# Analysis
+
+This repo/package contains the code which generates the content to store in KCL-Content which is then displayed in the TCR application here.
 
 Package dependencies: matplotlib, pandas, numpy, circlify, sqlalchemy, palmotif, statistics, os, skunk, sklearn, re, pwseqdist, tcrdist. 
-
 
 The general workflow to use the package is exemplified briefly in main.py. Comment and uncomment functions you require and run with `python main.py` 
 
