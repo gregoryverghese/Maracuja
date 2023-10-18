@@ -50,9 +50,7 @@ def archive_pw_dist(sample_size):
         pd.DataFrame(dfa).to_csv('Analysis/meta_' + str(sample_size) + '.csv', sep='\t', index=False)
 
 
-KCL_bulk = pd.read_csv("Analysis/processed_data/data2-KCL.csv", delimiter=',')
-
-archive_pw_dist(0.001)
+# archive_pw_dist(0.001)
 
 # # Plot per sample
 # samples = (list(set(KCL_bulk['Sample'])))

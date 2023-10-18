@@ -1,7 +1,4 @@
-__pycache__
-.DS_Store
-processed_data
-raw_data
-figures
-KCL-Content
+**/__pycache__
+**/.DS_Store
 analysis.db
+playground.py
