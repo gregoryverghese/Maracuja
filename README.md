@@ -4,8 +4,6 @@ This repo/package contains the code which generates the content to store in KCL-
 
 Package dependencies: matplotlib, pandas, numpy, circlify, sqlalchemy, palmotif, statistics, os, skunk, sklearn, re, pwseqdist, tcrdist. 
 
-The general workflow to use the package is exemplified briefly in main.py. Comment and uncomment functions you require and run with `python main.py` 
-
 ### Initialise Database
 
 On first clone, you must initialise the database using:
