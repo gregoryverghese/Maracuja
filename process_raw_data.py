@@ -10,9 +10,9 @@ path = sys.argv[2]
 ### --- Second lot of bulkDNAseq data (from immunoseq adaptive)--- ###
 if int(format) == 2:
     # path = '../ARCHIVE/KCL-New-data'
-    files = os.listdir(path)
+    files = [ file for file in os.listdir(path) if 'KCL' in file ]
 
-    for file in [ file for file in files if 'KCL' in file]:
+    for file in files:
         print(file)
         df = pd.read_csv(path + '/' + file, delimiter='\t')
 
