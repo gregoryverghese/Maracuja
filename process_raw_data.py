@@ -32,6 +32,7 @@ if int(format) == 2:
 if int(format) == 1:
     # path = '../KCL-Raw-data'
     files = [ file for file in os.listdir(path) if 'KCL' in file ]
+    
     for file in files:
         print(file)
         df = pd.read_csv(path + '/' + file, delimiter='\t')
