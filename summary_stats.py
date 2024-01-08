@@ -6,12 +6,13 @@ from scipy.stats import fisher_exact
 import sys
 
 path = sys.argv[1] # '../KCL-Clean-data/'
+outdir = sys.argv[2] # '../KCL-Content/summary_stats/'
 treatment_files = [ file for file in os.listdir(path) if 'Pool' in file ]
 df = pd.DataFrame()
 
 
 # Fisher's Exact test (split by file)
-for file in treatment_files[0:0]: 
+for file in treatment_files: 
     test = pd.read_csv(path + '/' + file, delimiter='\t')
     sample_name = file.split('_')[0]
     treatment = file.split('.')[0]
@@ -56,7 +57,7 @@ for file in treatment_files[0:0]:
 
     df = df.reset_index().rename(columns={'index':'clonotype'})
 
-    df.to_csv('../summary_stats/' + file, sep='\t', index=False)
+    df.to_csv(outdir + file, sep='\t', index=False)
 
 
 # Control files
@@ -76,14 +77,14 @@ for file in CTR_files:
         df.at[clonotype, 'proportion'] = round(count/total, 2)
 
     df = df.reset_index().rename(columns={'index':'clonotype'})
-    df.to_csv('../summary_stats/' + file, sep='\t', index=False)
+    df.to_csv(outdir + file, sep='\t', index=False)
 
 
 
 # Chi-Squared test (not actually appropriate for samples with many zeros)
 if False:
-    test = pd.read_csv('../KCL-Clean-data/KCL763-B_Pool9.tsv', delimiter='\t')
-    DMSO = pd.read_csv('../KCL-Clean-data/KCL763-B_DMSO.tsv', delimiter='\t')
+    test = pd.read_csv(path + 'KCL763-B_Pool9.tsv', delimiter='\t')
+    DMSO = pd.read_csv(path + 'KCL763-B_DMSO.tsv', delimiter='\t')
     clonotype = test['aminoacid'][0]
 
     test_count = test['count'][0] # 21

@@ -223,8 +223,8 @@ plot_motifs('../KCL-content/refs_logos_each', x_order, y_order, plot_folder)
 
 
 ## proportional
-motifs1.aa_reads_by_pool_arrays(samples, '../KCL-content/arrays/proportional')
-create_arrays.aa_reads_by_sample_arrays(samples, '../KCL-content/arrays/proportional')
-create_arrays.aa_reads_CTR_array(samples, '../KCL-content/arrays/proportional')
+aa_reads_by_pool_arrays(samples, '../KCL-content/arrays/proportional')
+aa_reads_by_sample_arrays(samples, '../KCL-content/arrays/proportional')
+aa_reads_CTR_array(samples, '../KCL-content/arrays/proportional')
 
-logos_to_fig.plot_motifs('../KCL-content/arrays/logos', x_order, y_order, '../KCL-content/figures/motif_analysis')
+plot_motifs('../KCL-content/arrays/logos', x_order, y_order, '../KCL-content/figures/motif_analysis')

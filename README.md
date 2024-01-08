@@ -4,6 +4,10 @@ This repo/package contains the code which generates the content to store in KCL-
 
 Package dependencies: matplotlib, pandas, numpy, circlify, sqlalchemy, palmotif, statistics, os, skunk, sklearn, re, pwseqdist, tcrdist. 
 
+### Process Raw data
+
+Process feature count data into standardised form with can be added as object to database. Run process_raw_data.py followed by the format of the data, 1 for adaptive data, 2 for data from immunoseq, and the path to the data files. You must manually create the metadata file describing the protocol, patient info, and type of data.
+
 ### Initialise Database
 
 On first clone, you must initialise the database using:
@@ -23,26 +27,11 @@ To create bubble plots for each sample, run bubbles.py followed by path and outd
 
 To create bubble overlay plots: use bubble_overlay() which requires the arguments: list of sample objects you wish to plot, list of x-axis order by patient and protocol,  list of y-axis order by pool, and the factor you wish to colour by including: none (no colour), EI (expansion index), TCT (total cell count), in_control (whether clonotype found in control) and pMTnet (by predicted affinity to peptides in pool). You can then either view plot with `plt.show()`, or save immediately with `plt.savefig(<path-to-save>, bbox_inches='tight')`
 
-### Motif Analysis
+### Summary stats
 
-Follow instructions on TCRdist website to install. If this works for you you can simply run in [main.py](http://main.py):
+Run summary_stats.py followed by the path to data and the path to KCL-Content/summary_stats to generate the top 5 clonotypes plus their comparative proportions in the same sample controls.
 
-```python
-arrays_folder = 'KCL-content/arrays'
-logos_folder = 'KCL-content/logos'
-plot_folder = 'KCL-content/figures/motif_analysis'
-motifs1.aa_reads_CTR_array(samples, arrays_folder)
-motifs2.arrays_to_logos_refs(arrays_folder, logos_folder)
-motifs3.plot_motifs('KCL-content/refs_logos_each', x_order, y_order, plot_folder)
-```
+### Shannon's index
 
-If you have problems building parasail for installing TCRdist modules, only the functions from motifs1 and motifs3 will work. TCRdist recommend using their docker image. 
+Run shannons_index.py followed by the path to data to calculate Shannon's index and simpson's index and to statistically verify this between each treatment sample and its control.
 
-```bash
-docker run --name tcrdist -d -it -v $(pwd)/:/<dir-containing-both-Analysis-and-data-folder>/ quay.io/kmayerb/tcrdist3:0.1.9
-docker exec -it tcrdist bash
-```
-
-### TCRdist
-
-This part needs to be updated, but [TCRdist.py](http://TCRdist.py) only works if TCRdist install for you. TCR_MDS must be run outside of docker container.
