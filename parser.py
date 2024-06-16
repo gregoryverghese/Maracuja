@@ -38,9 +38,10 @@ def parse_immunoseq(file_path: str) -> pd.DataFrame:
         'dGeneName': 'D',
         'jGeneName': 'J',
         'cGeneName': 'C',
-        'count (templates)': 'count',
+        'count (templates/reads)': 'count',
         'frequencyCount (%)': 'proportion'
     })
+    print(df.columns)
     return df
 
 
@@ -64,7 +65,6 @@ def parse(folder_path: str) -> Tuple[Dict[str, pd.DataFrame], pd.DataFrame]:
                 df = parse_immunoseq(file_path)
             else:
                 df = pd.read_csv(file_path, sep='\t')
-            
             # Ensure all expected columns are present in the dataframe
             key_cols = [
                 'CDR3_nt', 
@@ -77,7 +77,6 @@ def parse(folder_path: str) -> Tuple[Dict[str, pd.DataFrame], pd.DataFrame]:
                 'proportion'
             ]
 
-            print(set(df['V']))          
             for col in key_cols:
                 if col not in df.columns:
                     df[col] = None  # Add missing columns with a default value of None
@@ -101,7 +100,7 @@ data, meta_df = parse(folder_path)
 
 
 # Print out the data dictionary and meta dataframe
-print(data)
-print(list(data.keys()))
+#print(data)
+#print(list(data.keys()))
 #print(data[list(data.keys())[1]])
 
