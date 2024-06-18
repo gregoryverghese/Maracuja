@@ -34,7 +34,7 @@ rare_prop = rare_proportion(data)
 plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
 ```
 <div style="text-align: left;">
-<img src="graph.png" alt="clonality graphs" width="400"/>
+<img src="graph.png" alt="clonality graphs" width="600"/>
 </div>
 
 
