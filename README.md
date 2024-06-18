@@ -24,16 +24,12 @@ data, meta_df = rep_load(folder_path)
 Maracuja provides powerful tools to analyze clonality within TCR sequencing data.
 
 ### Clonality
-You can visualize the top proportions of clones within your samples.
+You can visualize the top proportions of clones or rarest clones within your samples and stratify by a specific group
 
 ```python
 top_prop = top_proportion(data)
 plot_top_proportion_stacked(top_prop)
-```
 
-Stratify your samples based on a particular group.
-
-```python
 rare_prop = rare_proportion(data)
 plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
 ```
