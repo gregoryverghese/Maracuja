@@ -33,6 +33,10 @@ plot_top_proportion_stacked(top_prop)
 rare_prop = rare_proportion(data)
 plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
 ```
+<div style="text-align: left;">
+<img src="graph.png" alt="clonality graphs" width="200"/>
+</div>
+
 
 ## License
 Maracuja is licensed under the MIT License.
