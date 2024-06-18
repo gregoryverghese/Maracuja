@@ -10,10 +10,9 @@ Maracuja is a comprehensive package for parsing and analyzing TCR sequencing dat
 
 Maracuja supports parsing raw TCR sequencing files from Adaptive Biotechnologies and ImmunoSEQ. 
 
-### Supported Formats
-- **ImmunoSEQ**
+#### Supported Formats
+- ImmunoSEQ
 
-### Parsing Example
 To parse the raw files, use the `rep_load` function:
 
 ```python
