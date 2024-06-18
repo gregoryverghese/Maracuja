@@ -1,5 +1,8 @@
+<div style="text-align: left;">
+<img src="maracuja.webp" alt="Maracuja Logo" width="100"/>
+</div>
 
-# Maracuja ![Maracuja Logo](maracuja.webp)
+# Maracuja
 
 Maracuja is a comprehensive package for parsing and analyzing TCR sequencing data. It supports data from various platforms, providing tools for detailed clonality analysis.
 
@@ -7,34 +10,33 @@ Maracuja is a comprehensive package for parsing and analyzing TCR sequencing dat
 
 Maracuja supports parsing raw TCR sequencing files from Adaptive Biotechnologies and ImmunoSEQ. 
 
-### Supported Formats
-- **ImmunoSEQ**
+#### Supported Formats
+- ImmunoSEQ
 
-### Parsing Example
 To parse the raw files, use the `rep_load` function:
 
 ```python
 folder_path = 'path/to/your/folder_with_repertoire_files/'
-data, meta_df = rep_load(folder_path)
+data, meta_df = parser(folder_path)
 ```
 
 ## Analysis
 Maracuja provides powerful tools to analyze clonality within TCR sequencing data.
 
 ### Clonality
-You can visualize the top proportions of clones within your samples.
+You can visualize the top proportions of clones or rarest clones within your samples and stratify by a specific group
 
 ```python
 top_prop = top_proportion(data)
 plot_top_proportion_stacked(top_prop)
-```
 
-Stratify your samples based on a particular group.
-
-```python
 rare_prop = rare_proportion(data)
 plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
 ```
+<div style="text-align: left;">
+<img src="graph.png" alt="clonality graphs" width="200"/>
+</div>
+
 
 ## License
 Maracuja is licensed under the MIT License.
