@@ -1,5 +1,6 @@
-
-<img src="maracuja.webp" alt="Maracuja Logo" width="100" align="left"/>
+<div style="text-align: left;">
+<img src="maracuja.webp" alt="Maracuja Logo" width="100"/>
+</div>
 
 # Maracuja
 
