@@ -13,7 +13,7 @@ Maracuja supports parsing raw TCR sequencing files from Adaptive Biotechnologies
 #### Supported Formats
 - ImmunoSEQ
 
-To parse the raw files, use the `rep_load` function:
+To parse the raw files, use the `parser` function:
 
 ```python
 folder_path = 'path/to/your/folder_with_repertoire_files/'
