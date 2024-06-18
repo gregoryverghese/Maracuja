@@ -7,6 +7,9 @@ import sys
 format = sys.argv[1]
 path = sys.argv[2]
 
+print(path)
+print(format)
+
 ### --- Second lot of bulkDNAseq data (from immunoseq adaptive)--- ###
 if int(format) == 2:
     # path = '../ARCHIVE/KCL-New-data'
@@ -25,7 +28,7 @@ if int(format) == 2:
         df['proportion'] = df['count']/sum(df['count'])
 
         df['count'] = df['count'].round(0).astype(int)
-        df.to_csv('../KCL-Clean-data/' + file, sep='\t')
+        df.to_csv('../KCL-Clean-data2/' + file, sep='\t')
 
 
 ### --- First lot of bulkDNAseq data (from Greg) --- ###
@@ -41,5 +44,5 @@ if int(format) == 1:
         df = df[df['aminoacid'].notna()].sort_values('count', ascending=False)
         
         df['proportion'] = df['count']/sum(df['count'])
-        df.to_csv('../KCL-Clean-data/' + file, sep='\t', index = False)
+        df.to_csv('../KCL-Clean-data/'+file, sep='\t', index = False)
 
