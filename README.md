@@ -13,7 +13,7 @@ Maracuja supports parsing raw TCR sequencing files from Adaptive Biotechnologies
 #### Supported Formats
 - ImmunoSEQ
 
-To parse the raw files, use the `rep_load` function:
+To parse the raw files, use the `parser` function:
 
 ```python
 folder_path = 'path/to/your/folder_with_repertoire_files/'
@@ -34,7 +34,7 @@ rare_prop = rare_proportion(data)
 plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
 ```
 <div style="text-align: left;">
-<img src="graph.png" alt="clonality graphs" width="200"/>
+<img src="graph.png" alt="clonality graphs" width="600"/>
 </div>
 
 
