@@ -1,4 +1,4 @@
-<div style="text-align: left;">
+<div style="text-align: centre;">
 <img src="maracuja.webp" alt="Maracuja Logo" width="100"/>
 </div>
 
