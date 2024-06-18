@@ -1,5 +1,5 @@
 
-# Maracuja ![Maracuja Logo](maracuja.png)
+# Maracuja ![Maracuja Logo](maracuja.webp)
 
 Maracuja is a comprehensive package for parsing and analyzing TCR sequencing data. It supports data from various platforms, providing tools for detailed clonality analysis.
 
