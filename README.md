@@ -17,7 +17,7 @@ To parse the raw files, use the `rep_load` function:
 
 ```python
 folder_path = 'path/to/your/folder_with_repertoire_files/'
-data, meta_df = rep_load(folder_path)
+data, meta_df = parser(folder_path)
 ```
 
 ## Analysis
