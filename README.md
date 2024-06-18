@@ -38,6 +38,7 @@ You can create a stacked bar chart to visualize the top proportions of clones wi
 ```python
 top_prop = top_proportion(data)
 plot_top_proportion_stacked(top_prop)
+```
 
 Grouped Bar Chart
 Stratify your samples based on a particular group to create a grouped bar chart using rare proportions.
@@ -45,6 +46,7 @@ Stratify your samples based on a particular group to create a grouped bar chart 
 ```python
 rare_prop = rare_proportion(data)
 plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
+```
 
 ## License
 Maracuja is licensed under the MIT License.
