@@ -1,37 +1,40 @@
-# Analysis
 
-This repo/package contains the code which generates the content to store in KCL-Content which is then displayed in the TCR application.
+# Maracuja ![Maracuja Logo](maracuja.webp)
 
-Package dependencies: matplotlib, pandas, numpy, circlify, sqlalchemy, palmotif, statistics, os, skunk, sklearn, re, pwseqdist, tcrdist. 
+Maracuja is a comprehensive package for parsing and analyzing TCR sequencing data. It supports data from various platforms, providing tools for detailed clonality analysis.
 
-### Process Raw data
+## Parsing
 
-Process feature count data into standardised form with can be added as object to database. Run process_raw_data.py followed by the format of the data, 1 for adaptive data, 2 for data from immunoseq, and the path to the data files. You must manually create the metadata file describing the protocol, patient info, and type of data.
+Maracuja supports parsing raw TCR sequencing files from Adaptive Biotechnologies and ImmunoSEQ. 
 
-### Initialise Database
+### Supported Formats
+- **ImmunoSEQ**
 
-On first clone, you must initialise the database using:
+### Parsing Example
+To parse the raw files, use the `rep_load` function:
 
 ```python
-initialise_db(<relative-path-to-bulkDNAseq-data>)
-initialise_SC_db(<relative-path-to-scRNAseq-data>)
+folder_path = 'path/to/your/folder_with_repertoire_files/'
+data, meta_df = rep_load(folder_path)
 ```
 
-This saves each sample file from those directories as objects with attributes: id, pool, protocol, patient_id, HLA_A, and a function to retrieve data get_df() with columns: a_aminoacid (if applicable), b_aminoacid, count, proportion, and pMTnet (best prediction for all peptides from pool for both HLA-A types).
+## Analysis
+Maracuja provides powerful tools to analyze clonality within TCR sequencing data.
 
-All sample objects can be accessed with `session.query(Sample).all()` and all objects are stored in a file generated called analysis.db.
+### Clonality
+You can visualize the top proportions of clones within your samples.
 
-### Bubble Plots
+```python
+top_prop = top_proportion(data)
+plot_top_proportion_stacked(top_prop)
+```
 
-To create bubble plots for each sample, run bubbles.py followed by path and outdir to generate bubble plots for every sample in a given directory.
+Stratify your samples based on a particular group.
 
-To create bubble overlay plots: use bubble_overlay() which requires the arguments: list of sample objects you wish to plot, list of x-axis order by patient and protocol,  list of y-axis order by pool, and the factor you wish to colour by including: none (no colour), EI (expansion index), TCT (total cell count), in_control (whether clonotype found in control) and pMTnet (by predicted affinity to peptides in pool). You can then either view plot with `plt.show()`, or save immediately with `plt.savefig(<path-to-save>, bbox_inches='tight')`
+```python
+rare_prop = rare_proportion(data)
+plot_top_proportion_grouped(rare_prop, meta_df, 'Group_Column_Name')
+```
 
-### Summary stats
-
-Run summary_stats.py followed by the path to data and the path to KCL-Content/summary_stats to generate the top 5 clonotypes plus their comparative proportions in the same sample controls.
-
-### Shannon's index
-
-Run shannons_index.py followed by the path to data to calculate Shannon's index and simpson's index and to statistically verify this between each treatment sample and its control.
-
+## License
+Maracuja is licensed under the MIT License.
