@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="maracuja.png" alt="Maracuja Logo" width="80" height="80">
+    <img src="maracuja.png" alt="Maracuja Logo" width="200">
   </a>
 
 # Maracuja
