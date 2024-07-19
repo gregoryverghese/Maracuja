@@ -1,5 +1,5 @@
-<div style="text-align: centre;">
-<img src="maracuja.png" alt="Maracuja Logo" width="100"/>
+<div style="text-align: center;">
+    <img src="maracuja.png" alt="Maracuja Logo" width="200"/>
 </div>
 
 # Maracuja
