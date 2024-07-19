@@ -35,7 +35,7 @@ class Sample(Base):
         self.pool = metadata['pool'][metadata['Sample']==id].values[0]
         self.protocol = metadata['protocol'][metadata['Sample']==id].values[0]
         self.patient_id = metadata['patient_id'][metadata['Sample']==id].values[0]
-        self.antigens = list(pool_peptides['Sequence'][pool_peptides['Pool']==self.pool]) 
+        #self.antigens = list(pool_peptides['Sequence'][pool_peptides['Pool']==self.pool]) 
         self.data_path = data_path
         self.HLA_A = metadata['HLAA'][metadata['Sample']==id].values[0]
 
@@ -43,13 +43,13 @@ class Sample(Base):
         df = pd.read_csv(self.data_path + '/' + self.id + '.tsv', delimiter='\t')
         # df=df.sort_values('count', ascending = False).reset_index().drop('index', axis=1).head(100)
 
-        antigens = list(pool_peptides['Sequence'][pool_peptides['Pool']==self.pool]) 
-        df['pMTnet'] = [1]*len(df)
-        for i in range(len(df)):
-            all_pred = preds[preds['CDR3']==df['aminoacid'][i]]
-            antigen_pred = all_pred[all_pred['Antigen'].isin(antigens)]
-            pred = (antigen_pred['Rank'].min()+0.0001)**0.2
-            df.at[i, 'pMTnet'] = pred
+        #antigens = list(pool_peptides['Sequence'][pool_peptides['Pool']==self.pool]) 
+        #df['pMTnet'] = [1]*len(df)
+        #for i in range(len(df)):
+            #all_pred = preds[preds['CDR3']==df['aminoacid'][i]]
+            #antigen_pred = all_pred[all_pred['Antigen'].isin(antigens)]
+            #pred = (antigen_pred['Rank'].min()+0.0001)**0.2
+            #df.at[i, 'pMTnet'] = pred
 
         return df
     
@@ -75,9 +75,10 @@ class Patient(Base):
 def initialise_db(path):
     global metadata; global pool_peptides; global preds; global data_path
     data_path = path
-    metadata = pd.read_csv(data_path + '/metadata.csv', delimiter='\t')
-    pool_peptides = pd.read_csv(data_path + '/HORMAD1pool_withNetMHC.csv', delimiter=',')
-    preds = pd.read_csv(data_path + '/pMTnet_prediction.csv', delimiter=',')
+    metadata = pd.read_csv(data_path + '/metadata.csv')
+    print(metadata.columns)
+    #pool_peptides = pd.read_csv(data_path + '/HORMAD1pool_withNetMHC.csv', delimiter=',')
+    #preds = pd.read_csv(data_path + '/pMTnet_prediction.csv', delimiter=',')
 
     patients = list(set(metadata['patient_id']))
     session.query(Patient).delete()
@@ -100,6 +101,6 @@ Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-initialise_db('../KCL-Clean-data')
+initialise_db('/Users/w2030634/CancerHub/TCR/Maracuja/KCL-Clean-data')
 
 
