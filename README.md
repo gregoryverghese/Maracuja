@@ -5,7 +5,7 @@
 
 <h1 align="center">Maracuja</h1 style="margin-top: 0;">
 
-Maracuja is a comprehensive package for parsing and analyzing TCR sequencing data. It supports data from various platforms, providing tools for detailed clonality analysis.
+Maracuja is a comprehensive package for parsing and analyzing TCR sequencing data. It currently supports data from the ImmunoSEQ platform (Adaptive Biotechnologies), providing tools for detailed clonality analysis.
 
 ## Parsing
 
